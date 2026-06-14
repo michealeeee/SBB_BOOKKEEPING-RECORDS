@@ -1,0 +1,85 @@
+/* GLOBAL */
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #f4f6fb;
+}
+
+/* APP LAYOUT */
+.app {
+  display: flex;
+  height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 240px;
+  background: white;
+  border-right: 1px solid #eee;
+  padding: 20px;
+}
+
+.logo {
+  margin-bottom: 30px;
+  color: #2f80ed;
+}
+
+.sidebar button {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: none;
+  background: #f1f3f6;
+  border-radius: 8px;
+}
+
+/* MAIN */
+.main {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+/* CARD */
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+/* COLORS */
+.green { border-left: 4px solid green; }
+.red { border-left: 4px solid red; }
+.blue { border-left: 4px solid blue; }
+.orange { border-left: 4px solid orange; }
+
+/* CHART */
+.chartBox {
+  background: white;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* SUMMARY */
+.summaryGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.box {
+  background: white;
+  height: 200px;
+  border-radius: 10px;
+  padding: 15px;
+}
