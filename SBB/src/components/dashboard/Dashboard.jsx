@@ -2,6 +2,8 @@ import StatCard from "./StatCard";
 import LineChart from "./LineChart";
 import CashFlow from "./CashFlow";
 import SummaryBoxes from "./SummaryBoxes";
+import IncomeExpenseChart from "./IncomeExpenseChart";
+
 
 export default function Dashboard() {
   return (
@@ -17,6 +19,7 @@ export default function Dashboard() {
 
       <CashFlow />
          <LineChart />
+         <IncomeExpenseChart />
       <SummaryBoxes />
     </div>
   );
