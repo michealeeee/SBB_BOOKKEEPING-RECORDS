@@ -1,3 +1,5 @@
+import heroImage from "./assets/hero.jpg";
+
 export default function LandingPage({ onLogin }) {
   return (
     <div className="landing">
@@ -39,10 +41,7 @@ export default function LandingPage({ onLogin }) {
         </div>
 
         <div className="hero-right">
-          <img
-            src="./images/hero.jpg"
-            alt="Dashboard Preview"
-          />
+         <img src={heroImage} alt="Dashboard Preview" />
         </div>
 
       </header>

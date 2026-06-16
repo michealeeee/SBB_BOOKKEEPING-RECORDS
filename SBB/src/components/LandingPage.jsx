@@ -1,4 +1,6 @@
-export default function LandingPage() {
+import heroImage from "../assets/hero.jpg";
+
+export default function LandingPage({ onLogin }) {
   return (
     <div className="landing">
 
@@ -8,32 +10,89 @@ export default function LandingPage() {
 
         <div className="nav-links">
           <a href="#features">Features</a>
+          <a href="#dashboard">Product</a>
           <a href="#pricing">Pricing</a>
-          <a href="#footer">Contact</a>
+          <a href="#testimonials">Reviews</a>
         </div>
 
-        <button className="login-btn">Login</button>
+        <button className="login-btn" onClick={onLogin}>
+          Start Free Trial
+        </button>
       </nav>
 
-      {/* HERO */}
-      <section className="hero">
-        <h1>Smart Bookkeeping for Small Businesses</h1>
-        <p>
-          Manage income, expenses, invoices, and reports in one clean dashboard.
-        </p>
+      {/* HERO SECTION */}
+      <header className="hero">
+        
 
-        <div className="hero-buttons">
-          <button className="primary-btn">Start Free Trial</button>
-          <button className="secondary-btn">View Pricing</button>
+        <div className="hero-left">
+         <p><h1>Smart Bookkeeping for Small Businesses</h1></p> 
+          <p>
+            Track income, expenses, invoices, and financial reports in one powerful dashboard.
+          </p>
+
+          <div className="hero-buttons">
+            <button className="primary-btn" onClick={onLogin}>
+              Start Free Trial
+            </button>
+            <button className="secondary-btn">
+              Watch Demo
+            </button>
+          </div>
         </div>
+
+        <div className="hero-right">
+         <img src={heroImage} alt="Dashboard Preview" />
+        </div>
+
+      </header>
+
+      {/* TRUST STRIP */}
+      <section className="trust">
+        <p>Trusted by small businesses worldwide</p>
       </section>
 
       {/* FEATURES */}
       <section id="features" className="features">
-        <div className="feature">📊 Real-time Analytics</div>
-        <div className="feature">🧾 Smart Invoicing</div>
-        <div className="feature">💰 Expense Tracking</div>
-        <div className="feature">📁 Financial Reports</div>
+
+        <div className="feature">
+          <img src="https://images.unsplash.com/photo-1551288049-ec8c0d1f6f5d" />
+          <h3>Real-time Analytics</h3>
+        </div>
+
+        <div className="feature">
+          <img src="https://images.unsplash.com/photo-1554224154-26032ffc0d07" />
+          <h3>Smart Invoicing</h3>
+        </div>
+
+        <div className="feature">
+          <img src="https://images.unsplash.com/photo-1567427017947-545c5f8d16ad" />
+          <h3>Expense Tracking</h3>
+        </div>
+
+        <div className="feature">
+          <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f" />
+          <h3>Financial Reports</h3>
+        </div>
+
+      </section>
+
+      {/* DASHBOARD PREVIEW */}
+      <section id="dashboard" className="dashboard-preview">
+
+        <div className="preview-text">
+          <h2>All your finances in one dashboard</h2>
+          <p>
+            Monitor cash flow, track invoices, and analyze profits with real-time insights.
+          </p>
+        </div>
+
+        <div className="preview-image">
+          <img
+            src="https://images.unsplash.com/photo-1551288049-8a6b8b4b6c4b"
+            alt="Dashboard UI"
+          />
+        </div>
+
       </section>
 
       {/* PRICING */}
@@ -79,8 +138,37 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* TESTIMONIALS */}
+      <section id="testimonials" className="testimonials">
+
+        <h2>What users say</h2>
+
+        <div className="testimonial-grid">
+
+          <div className="testimonial">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e" />
+            <p>"This app saved my business hours every week!"</p>
+            <h4>John D.</h4>
+          </div>
+
+          <div className="testimonial">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2" />
+            <p>"Clean, simple, and powerful dashboard."</p>
+            <h4>Ama K.</h4>
+          </div>
+
+          <div className="testimonial">
+            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1" />
+            <p>"Best bookkeeping tool I’ve used so far."</p>
+            <h4>Michael T.</h4>
+          </div>
+
+        </div>
+
+      </section>
+
       {/* FOOTER */}
-      <footer id="footer" className="footer">
+      <footer className="footer">
         <p>© 2026 Bookkeeply. All rights reserved.</p>
       </footer>
 
