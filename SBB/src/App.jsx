@@ -1,8 +1,9 @@
 import { useState } from "react";
 import "./App.css";
+
 import LandingPage from "./components/LandingPage";
-import "./styles/landing.css";
 import Sidebar from "./components/layout/Sidebar";
+
 import Dashboard from "./components/dashboard/Dashboard";
 import Transactions from "./components/transactions/Transactions";
 import Invoices from "./components/invoices/Invoices";
@@ -14,33 +15,56 @@ import Taxes from "./components/taxes/Taxes";
 import Subscribers from "./components/subscribers/Subscribers";
 
 export default function App() {
-  // controls landing vs app
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  // controls dashboard pages
   const [page, setPage] = useState("dashboard");
+  const [mobileOpen, setMobileOpen] = useState(false);
 
-  // ---------- LANDING PAGE ----------
+  const toggleMenu = () => setMobileOpen(prev => !prev);
+
   if (isLoggedIn) {
     return <LandingPage onLogin={() => setIsLoggedIn(true)} />;
   }
 
-  // ---------- DASHBOARD APP ----------
-  return (
-    <div className="app">
-      <Sidebar setPage={setPage} />
+  const renderPage = () => {
+    switch (page) {
+      case "dashboard":
+        return <Dashboard />;
+      case "transactions":
+        return <Transactions />;
+      case "invoices":
+        return <Invoices />;
+      case "reports":
+        return <Reports />;
+      case "expenses":
+        return <Expenses />;
+      case "vendors":
+        return <Vendors />;
+      case "customers":
+        return <Customers />;
+      case "taxes":
+        return <Taxes />;
+      case "subscribers":
+        return <Subscribers />;
+      default:
+        return <Dashboard />;
+    }
+  };
 
-      <div className="main">
-        {page === "dashboard" && <Dashboard />}
-        {page === "transactions" && <Transactions />}
-        {page === "invoices" && <Invoices />}
-        {page === "reports" && <Reports />}
-        {page === "expenses" && <Expenses />}
-        {page === "vendors" && <Vendors />}
-        {page === "customers" && <Customers />}
-        {page === "taxes" && <Taxes />}
-        {page === "subscribers" && <Subscribers />}
+  return (
+    <div className="app-container">
+      <div className="mobile-header">
+        <button className="menu-btn" onClick={toggleMenu}>
+          <i className={mobileOpen ? "fa-solid fa-xmark" : "fa-solid fa-bars"} />
+        </button>
       </div>
+
+      <Sidebar
+        setPage={setPage}
+        mobileOpen={mobileOpen}
+        setMobileOpen={setMobileOpen}
+      />
+
+      <main className="main-content">{renderPage()}</main>
     </div>
   );
 }

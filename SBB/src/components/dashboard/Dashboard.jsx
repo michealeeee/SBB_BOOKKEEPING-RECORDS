@@ -4,10 +4,9 @@ import CashFlow from "./CashFlow";
 import SummaryBoxes from "./SummaryBoxes";
 import IncomeExpenseChart from "./IncomeExpenseChart";
 
-
 export default function Dashboard() {
   return (
-    <div>
+    <div className="dashboard">
       <h1>Dashboard</h1>
 
       <div className="grid">
@@ -18,8 +17,8 @@ export default function Dashboard() {
       </div>
 
       <CashFlow />
-         <LineChart />
-         <IncomeExpenseChart />
+      <LineChart />
+      <IncomeExpenseChart />
       <SummaryBoxes />
     </div>
   );
