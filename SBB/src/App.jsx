@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "./App.css";
 
-import LandingPage from "./components/LandingPage";
 import Sidebar from "./components/layout/Sidebar";
 
 import Dashboard from "./components/dashboard/Dashboard";
@@ -15,15 +14,8 @@ import Taxes from "./components/taxes/Taxes";
 import Subscribers from "./components/subscribers/Subscribers";
 
 export default function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [page, setPage] = useState("dashboard");
   const [mobileOpen, setMobileOpen] = useState(false);
-
-  const toggleMenu = () => setMobileOpen(prev => !prev);
-
-  if (isLoggedIn) {
-    return <LandingPage onLogin={() => setIsLoggedIn(true)} />;
-  }
 
   const renderPage = () => {
     switch (page) {
@@ -52,11 +44,17 @@ export default function App() {
 
   return (
     <div className="app-container">
-      <div className="mobile-header">
-        <button className="menu-btn" onClick={toggleMenu}>
-          <i className={mobileOpen ? "fa-solid fa-xmark" : "fa-solid fa-bars"} />
+
+      <header className="mobile-header">
+        <button
+          className="menu-btn"
+          onClick={() => setMobileOpen(!mobileOpen)}
+        >
+          ☰
         </button>
-      </div>
+
+        <h2>Bookkeeping</h2>
+      </header>
 
       <Sidebar
         setPage={setPage}
@@ -64,7 +62,10 @@ export default function App() {
         setMobileOpen={setMobileOpen}
       />
 
-      <main className="main-content">{renderPage()}</main>
+      <main className="main-content">
+        {renderPage()}
+      </main>
+
     </div>
   );
 }
